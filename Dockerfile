@@ -14,4 +14,4 @@ USER appuser
 EXPOSE $PORT
 
 # Command to start Gunicorn with your app
-CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 dash_app:server
+CMD exec gunicorn --bind :$PORT --workers 1 --threads 8 --timeout 0 app:server
