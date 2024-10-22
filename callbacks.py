@@ -219,14 +219,14 @@ def register_callbacks(app):
                 dbc.Button(
                     dbc.Row([
                         dbc.Col(html.Img(src=game_info['Home Team Logo'], height="60px"), width=1,
-                                style={'text-align': 'center'}),
+                                style={'textAlign': 'center'}),
                         dbc.Col(
                             html.Div([
                                 html.H4(game_info['Home Team'], style={'color': game_info['Home Team Color']}),
                                 html.P(f"{game_info['Home Team Record']}", style={'margin': '0', 'padding': '0'}),
                                 html.Div(home_team_score_display),  # Display home team score
                                 html.P(home_team_extra_info)  # Down distance for home team if possession
-                            ], style={'text-align': 'center'}),
+                            ], style={'textAlign': 'center'}),
                             width=3
                         ),
                         dbc.Col(
@@ -238,7 +238,7 @@ def register_callbacks(app):
                                 html.P(game_info['Start Date (EST)'], style={'margin': '0', 'padding': '0'}),
                                 html.P(f"{game_info['Location']} - {game_info['Network']}",
                                        style={'margin': '0', 'padding': '0'}),
-                            ], style={'text-align': 'center'}),
+                            ], style={'textAlign': 'center'}),
                             width=4
                         ),
                         dbc.Col(
@@ -247,11 +247,11 @@ def register_callbacks(app):
                                 html.P(f"{game_info['Away Team Record']}", style={'margin': '0', 'padding': '0'}),
                                 html.Div(away_team_score_display),  # Display away team score
                                 html.P(away_team_extra_info)  # Down distance for away team if possession
-                            ], style={'text-align': 'center'}),
+                            ], style={'textAlign': 'center'}),
                             width=3
                         ),
                         dbc.Col(html.Img(src=game_info['Away Team Logo'], height="60px"), width=1,
-                                style={'text-align': 'center'}),
+                                style={'textAlign': 'center'}),
                     ], className="game-row", style={'padding': '10px'}),
                     id={'type': 'game-button', 'index': game_id},  # Unique ID for each game button
                     n_clicks=0,
@@ -261,7 +261,7 @@ def register_callbacks(app):
                         '--team-home-color': home_color + '50',  # Pass team home color
                         '--team-away-color': away_color + '50',  # Pass team away color
                         'width': '100%',
-                        'text-align': 'left'
+                        'textAlign': 'left'
                     },
                     value=game_id,  # Pass the game_id as the button's value
                 )

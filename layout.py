@@ -15,15 +15,15 @@ layout = dbc.Container([
         dbc.Col(
             html.Div(
                 [
-                    html.Img(src="assets/nfl-3644686_1280.webp", height="50px", style={"margin-right": "10px"}),
-                    html.H1("NFL Games", style={"display": "inline-block", "vertical-align": "middle"}),
+                    html.Img(src="assets/nfl-3644686_1280.webp", height="50px", style={"marginRight": "10px"}),
+                    html.H1("NFL Games", style={"display": "inlineBlock", "verticalAlign": "middle"}),
                 ],
-                style={"display": "flex", "align-items": "center", "justify-content": "center"}
+                style={"display": "flex", "alignItems": "center", "justifyContent": "center"}
             ),
             width=12,
-            className="text-center"
+            className="textCenter"
         ),
-        style={'margin-bottom': '20px'}
+        style={'marginBottom': '20px'}
     ),
     dbc.Row(dbc.Col(dcc.Dropdown(
         id='week-selector',
@@ -31,12 +31,12 @@ layout = dbc.Container([
         placeholder="Select a week",
         style={
             'padding': '3px',
-            'text-align': 'center',
-            'text-align-last': 'center',
-            'font-size': '20px',
+            'textAlign': 'center',
+            'textAlignLast': 'center',
+            'fontSize': '20px',
             'color': 'black',
-            'align-items': 'center',
-            'justify-content': 'center'
+            'alignItems': 'center',
+            'justifyContent': 'center'
         },
     ))),
     dbc.Row(
