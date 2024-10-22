@@ -18,6 +18,7 @@ def register_callbacks(app):
         [Input('week-options-store', 'data')]
     )
     def update_week_options(week_options_fetched):
+        print("update_week_options triggered")
         week_options = []  # Initialize week_options here
 
         if week_options_fetched or week_options:  # Check if already fetched or if week_options is not empty
@@ -62,6 +63,7 @@ def register_callbacks(app):
         [Input('week-options-store', 'data')]
     )
     def store_selected_week(week_options_fetched):
+        print("store_selected_week triggered")
         if not week_options_fetched:
             raise dash.exceptions.PreventUpdate
 
@@ -92,6 +94,7 @@ def register_callbacks(app):
         # print("Selected Value:", selected_value)
         return {'value': selected_value}
 
+
     @app.callback(
         Output('game-info', 'children'),  # Output to the game-info div
         Output('in-progress-flag', 'data'),
@@ -101,8 +104,7 @@ def register_callbacks(app):
         prevent_initial_call=True
     )
     def display_game_info(selected_week_index, scores_data, nfl_events_data):
-
-        print("display_game_info triggered!")
+        print("display_game_info triggered")
         print(f"Scores Data: {scores_data}")
 
         ctx = dash.callback_context
@@ -279,7 +281,7 @@ def register_callbacks(app):
     )
     def update_scores(n_intervals, prev_scores_data):
         # Fetch data for all games on the selected day
-        print("Updating scores data...")
+        print(f"Interval triggered: {n_intervals}")
         games_data = fetch_games_by_day()
 
         if not games_data:
@@ -345,13 +347,16 @@ def register_callbacks(app):
         print("Scores updated.")
         return updated_scores_data, games_in_progress
 
-
     @app.callback(
         Output({'type': 'scoring-plays', 'index': dash.dependencies.ALL}, 'children'),
         [Input({'type': 'game-button', 'index': dash.dependencies.ALL}, 'n_clicks')],
         [State({'type': 'game-button', 'index': dash.dependencies.ALL}, 'id')]
     )
     def display_scoring_plays(n_clicks_list, button_ids):
+        print("display_scoring_plays triggered")
+        print(f"n_clicks_list: {n_clicks_list}")
+        print(f"button_ids: {button_ids}")
+
         ctx = dash.callback_context
         if not ctx.triggered:
             return [[]] * len(n_clicks_list)
