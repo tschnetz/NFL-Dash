@@ -101,6 +101,7 @@ def register_callbacks(app):
         prevent_initial_call=True
     )
     def display_game_info(selected_week_index, scores_data, nfl_events_data):
+
         print("display_game_info triggered!")
         print(f"Scores Data: {scores_data}")
 
@@ -113,9 +114,9 @@ def register_callbacks(app):
             print("Week selection triggered, fetching NFL events.")
             nfl_events_data = fetch_nfl_events()
 
-        if not triggered_by_week_selection and (not scores_data or not any(scores_data)):
-            print("Preventing update due to no relevant triggers.")
-            raise dash.exceptions.PreventUpdate
+        # if not triggered_by_week_selection and (not scores_data or not any(scores_data)):
+        #    print("Preventing update due to no relevant triggers.")
+        #    raise dash.exceptions.PreventUpdate
 
         # Debugging to confirm that correct scores data is being passed
         if scores_data:

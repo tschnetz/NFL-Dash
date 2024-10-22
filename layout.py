@@ -47,5 +47,5 @@ layout = dbc.Container([
                 children=[html.Div(id='game-info')]
             )
         )
-    )
+    ),
 ])
