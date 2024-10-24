@@ -159,8 +159,6 @@ def register_callbacks(app):
                                 game['status']['type']['description'] != 'Final'
                                 for game in selected_week_games)
 
-        print("Games in progress:", games_in_progress)
-
         sorted_games = sorted(selected_week_games, key=lambda x: (
             x['status']['type']['description'] == 'Final',
             x['status']['type']['description'] == 'Scheduled',
@@ -323,6 +321,7 @@ def register_callbacks(app):
 
         print("Scores updated.")
         return updated_scores_data, games_in_progress
+
 
     @app.callback(
         Output({'type': 'scoring-plays', 'index': dash.dependencies.ALL}, 'children'),
