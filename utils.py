@@ -64,7 +64,6 @@ def fetch_games_by_day():
     response = requests.get(SCOREBOARD_URL, headers=HEADERS, params=querystring)
     return response.json() if response.status_code == 200 else {}
 
-from datetime import datetime, timezone
 
 def extract_game_info(event, last_fetched_odds):
     """Extract all relevant game information from an event."""
